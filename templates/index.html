@@ -4,12 +4,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Reminder</title>
+    <title>Create a ScanRemind Reminder</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
     <div class="container">
-        <h1>Create Reminder</h1>
+        <h1>Create a ScanRemind Reminder</h1>
         {% if session.get('verified_email') %}
             <a href="{{ url_for('reminders.my_reminders') }}" class="manage-link">My Reminders</a>
         {% else %}
@@ -20,7 +20,7 @@
         {% if messages %}
             <div class="flash-messages">
             {% for category, message in messages %}
-                <div class="flash {{ category }}" style="color: green; font-weight: bold; margin: 10px 0;">
+                <div class="flash {{ category }}" style="color: blue; font-weight: bold; margin: 10px 0;">
                 {{ message }}
                 </div>
             {% endfor %}
