@@ -10,7 +10,7 @@ def send_brevo_email(to, subject, body):
     
     send_smtp_email = sib_api_v3_sdk.SendSmtpEmail(
         to=[{"email": to}],
-        sender={"name": "QRemind", "email": os.getenv('BREVO_SENDER_EMAIL')},
+        sender={"name": "ScanRemind", "email": os.getenv('BREVO_SENDER_EMAIL')},
         subject=subject,
         text_content=body
     )

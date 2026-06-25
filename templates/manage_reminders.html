@@ -9,8 +9,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Manage Reminders</h1>
-        <p>Enter your email to receive a one-time password.</p>
+       <h1>Manage Your ScanRemind Reminders</h1>
+<p>Enter your email and we’ll send you a one-time code to access your reminders.</p>
 
         {% with messages = get_flashed_messages(with_categories=true) %}
         {% if messages %}
@@ -25,7 +25,7 @@
         <form action="{{ url_for('auth.send_otp') }}" method="post">
             <label for="email">Email:</label>
             <input type="email" id="email" name="email" required>
-            <button type="submit">Send OTP</button>
+            <button type="submit">Send Verification Code</button>
         </form>
 
         <a href="{{ url_for('reminders.set_reminder') }}" class="back-button">← Back</a>

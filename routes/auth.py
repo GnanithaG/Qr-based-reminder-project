@@ -30,8 +30,8 @@ def send_otp():
     try:
         send_brevo_email(
             to=email,
-            subject='Your OTP for Reminder Access',
-            body=f"Your OTP is: {otp}\n\nIt expires in 10 minutes. Do not share it with anyone."
+            subject='Your ScanRemind Verification Code',
+body=f"Your ScanRemind verification code is: {otp}\n\nIt expires in 10 minutes. Do not share it with anyone."
         )
         current_app.logger.info(f"OTP sent to {email}")
     except Exception as e:

@@ -3,11 +3,11 @@
 <head>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
-    <title>Reminder Set</title>
+    <title>Reminder Scheduled</title>
 </head>
 <body style="text-align: center; margin-top: 80px;">
-    <h1 style="color: green;">✅ Reminder Set!</h1>
-    <p>Thank you, {{ username }}. We’ve scheduled your reminder email.</p>
-    <a href="{{ url_for('reminders.set_reminder') }}">← 🏠 Home</a>
+   <h1 style="color: green;">✅ Reminder Scheduled!</h1>
+<p>Thank you, {{ username }}. ScanRemind will email you when it is time.</p>
+    <a href="{{ url_for('reminders.set_reminder') }}">← Create another reminder</a>
 </body>
 </html>

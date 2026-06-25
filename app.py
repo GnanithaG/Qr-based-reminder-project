@@ -47,14 +47,18 @@ def send_email(reminder_id, username, title, description, email, repeat='none'):
             formatted_body = f"""
 Hello {username},
 
-This is a friendly reminder about {title}.
+This is your ScanRemind reminder:
 
+Title: {title}
+
+Details:
 {description}
 
-Regards,
-Team
-            """
+We hope this helps you stay on track.
 
+Regards,
+ScanRemind Team
+            """
             send_brevo_email(
                 to=email,
                 subject=title,
