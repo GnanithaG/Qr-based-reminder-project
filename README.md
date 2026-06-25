@@ -1,88 +1,41 @@
-# QRemind
+# ScanRemind
 
-Scan a QR code, set a reminder, get an email when it's time. 
-No account needed — just your email.
+ScanRemind is a QR-based reminder web app built with Flask. Users can scan a QR code, open a reminder form, set a date and time, and receive an email reminder when it is due.
 
-**Live demo:** https://qremind.onrender.com
+The app does not require account creation. Users can manage their reminders using email-based OTP verification.
 
-Built this project to get hands-on with Flask, databases, and email delivery outside of tutorials.
+## Why I built this
+
+I built ScanRemind to practice full-stack Flask development, database handling, QR code generation, background scheduling, and transactional email delivery in a real-world workflow.
 
 ## How it works
 
-You scan a QR code, fill out a quick form, and QRemind emails you at the time you set. Reminders can repeat daily, weekly, or monthly. No account needed.
+A user scans the QR code and is taken to a reminder form. After submitting a title, description, email, date, time, and repeat option, the reminder is saved in the database.
 
-To manage your reminders, you verify with a one-time password sent to your email.
+A background scheduler checks for due reminders and sends an email notification at the scheduled time.
+
+Users can also manage their reminders by verifying their email with a one-time password.
 
 ## Features
 
-- Set reminders with a title, description, date and time
-- Repeat options: one time, daily, weekly, monthly
-- Email delivery via Brevo
-- OTP-based reminder management — view and delete your reminders
-- Session handling with 10 minute expiry
-- QR code generation linking directly to the reminder form
+- QR code landing page
+- Create reminders with title, description, date, and time
+- One-time, daily, weekly, and monthly repeat options
+- Email reminder delivery using Brevo
+- OTP-based reminder management
+- View and delete reminders
+- SQLite database for local development
+- Flask Blueprints for organized routing
+- Background reminder checking using APScheduler
 
-## Tech stack
+## Tech Stack
 
-- Python / Flask
-- SQLite (development — PostgreSQL recommended for production)
-- Brevo (transactional email)
-- APScheduler
+- Python
+- Flask
+- SQLite
+- HTML/CSS
 - Jinja2
-- pytz
-
-## Project structure
-
-```
-QRemind/
-│
-├── app.py                    # app factory, email sender, scheduler logic
-├── extensions.py             # brevo email helper
-├── database.py               # db connection and table setup
-├── migrate.py                # run manually for schema changes
-├── gunicorn_config.py        # gunicorn hooks for scheduler startup
-├── routes/
-│   ├── __init__.py
-│   ├── qr.py                 # qr code generation and landing page
-│   ├── reminders.py          # create, view, delete reminders
-│   └── auth.py               # otp flow and session management
-├── templates/
-│   ├── qrcode.html
-│   ├── index.html
-│   ├── success.html
-│   ├── manage_reminders.html
-│   ├── verify_otp.html
-│   └── my_reminders.html
-├── static/
-│   └── styles.css
-├── ENHANCEMENTS.md
-├── PRODUCTION_INCIDENTS.md
-├── requirements.txt
-└── .env                      # not committed
-```
-
-## Running locally
-
-```bash
-git clone https://github.com/mmaisa1/Qr-reminder-project.git
-cd Qr-reminder-project
-pip install -r requirements.txt
-```
-
-Create a `.env` file:
-```
-FLASK_SECRET_KEY=your_secret_key
-BREVO_API_KEY=your_brevo_api_key
-BREVO_SENDER_EMAIL=your_sender_email
-URL=http://your_local_ip:5000/set-reminder
-```
-Then run:
-
-```bash
-python migrate.py
-python app.py
-```
-
-## What's next
-
-See `ENHANCEMENTS.md` for planned improvements.
+- APScheduler
+- Brevo Transactional Email API
+- QRCode Python package
+- python-dotenv
